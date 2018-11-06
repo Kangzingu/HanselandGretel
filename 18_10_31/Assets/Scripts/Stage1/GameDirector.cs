@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameDirector : MonoBehaviour {
     // Use this for initialization
-
+    //
     public GameObject door;
     bool isDoorStart;
     bool isOpened;
