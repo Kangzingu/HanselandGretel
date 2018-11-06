@@ -36,7 +36,7 @@ public class GameDirector : MonoBehaviour {
     public Light light5;
     public Light light6;
     public Light light7;
-    public Light light8;
+    //public Light light8;
     float distance;
 
 
@@ -133,7 +133,7 @@ public class GameDirector : MonoBehaviour {
         LightOn_Off(mPlayer_position, light_position, light5);
         LightOn_Off(mPlayer_position, light_position, light6);
         LightOn_Off(mPlayer_position, light_position, light7);
-        LightOn_Off(mPlayer_position, light_position, light8);
+        //LightOn_Off(mPlayer_position, light_position, light8);
 
     }
     public void Stage1Clear()
