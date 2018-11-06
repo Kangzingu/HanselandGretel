@@ -12184,6 +12184,8 @@ MonoBehaviour:
   mCar: {fileID: 763093842}
   mPeople: {fileID: 1407550991}
   mPlayer: {fileID: 0}
+  childLaugh: {fileID: 8300000, guid: edfe947f72d9f2441b73948f7a2d6cc4, type: 3}
+  autoBike: {fileID: 8300000, guid: a171aaf2fc722734783895e6b31074fb, type: 3}
 --- !u!1001 &1545916713
 Prefab:
   m_ObjectHideFlags: 0

@@ -26,6 +26,11 @@ public class GameDirector : MonoBehaviour {
 
     public GameObject mPlayer;
 
+    public AudioClip childLaugh;
+    public AudioClip autoBike;
+    public AudioClip bikeBell;
+    AudioSource aud;
+
     void Start () {
         isOpened = false;
         isDoorStart = false;
@@ -37,7 +42,10 @@ public class GameDirector : MonoBehaviour {
         isCarStart = false;
         isPeoplesStart = false;
         isPeopleTurnStart = false;
-        
+
+        //Audio
+        this.aud = GetComponent<AudioSource>();
+
     }
     // Update is called once per frame
     void Update () {
@@ -59,8 +67,10 @@ public class GameDirector : MonoBehaviour {
 
             if (isOpened == true)//만약 다 열렸다면
             {
-                this.ChildRun();
+                //Audio
+                this.aud.PlayOneShot(this.childLaugh);
                 //애기 뛰어라
+                this.ChildRun();     
             }
 
         
@@ -150,6 +160,8 @@ public class GameDirector : MonoBehaviour {
     {
         mMotorCycle.transform.position = new Vector3(18, 0, -15);
         isMotorCycleStart = true;
+        //Audio
+        this.aud.PlayOneShot(this.autoBike);
     }
     public void CarStart()
     {
@@ -178,11 +190,15 @@ public class GameDirector : MonoBehaviour {
     public void CollisionMotorCycle()
     {
         Debug.Log("오토바이 닿음");
+        //Audio
+        this.aud.PlayOneShot(this.bikeBell);
         isMotorCycleStart = false;
     }
     public void ExitCollisionMotorCycle()
     {
         isMotorCycleStart = true;
+        //Audio
+        this.aud.PlayOneShot(this.autoBike);
     }
     public void CollisionCar()
     {
