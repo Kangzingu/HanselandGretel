@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameDirector : MonoBehaviour {
     // Use this for initialization
 
+   
     public GameObject door;
     bool isDoorStart;
     bool isOpened;
@@ -26,7 +27,21 @@ public class GameDirector : MonoBehaviour {
 
     public GameObject mPlayer;
 
+    //Light 제어
+    public Transform mPlayer_position;
+    public Transform light_position;
     public Light light1;
+    public Light light2;
+    public Light light3;
+    public Light light4;
+    public Light light5;
+    public Light light6;
+    public Light light7;
+    public Light light8;
+
+    float distance;
+    //
+
     void Start () {
         isOpened = false;
         isDoorStart = false;
@@ -38,12 +53,14 @@ public class GameDirector : MonoBehaviour {
         isCarStart = false;
         isPeoplesStart = false;
         isPeopleTurnStart = false;
-        
+
+      
     }
     // Update is called once per frame
     void Update () {
         if (isDoorStart == true)//문 열기 시작
         {
+            
             Debug.Log(rotateCount);
             if (rotateCount > 30)//90도 이상 열렸다면
             {
@@ -60,20 +77,22 @@ public class GameDirector : MonoBehaviour {
 
             if (isOpened == true)//만약 다 열렸다면
             {
+                
                 this.ChildRun();
                 //애기 뛰어라
             }
 
-        
-
-
+       
         }
+
         if (isChildStart == true)//애기 뛰는거 시작
         {
             //mChild.transform.Translate(0.1f, 0, 0);
             //mChild.GetComponent<Rigidbody>().AddForce(10,0,0);
             //isChildStart = false;
             mChild.GetComponent<Animator>().SetFloat("h", 1.0f);
+
+            
         }
         if (isMotorCycleStart == true)//오토바이 출발
         {
@@ -97,8 +116,26 @@ public class GameDirector : MonoBehaviour {
             }
             
         }
-        
-	}
+
+        /*
+         * 가로등 제어
+         */
+
+      
+
+        //light와 플레이어의 거리 비교
+        LightOn_Off(mPlayer_position, light_position, light1);
+        LightOn_Off(mPlayer_position, light_position, light2);
+        LightOn_Off(mPlayer_position, light_position, light3);
+        LightOn_Off(mPlayer_position, light_position, light4);
+        LightOn_Off(mPlayer_position, light_position, light5);
+        LightOn_Off(mPlayer_position, light_position, light6);
+        LightOn_Off(mPlayer_position, light_position, light7);
+        LightOn_Off(mPlayer_position, light_position, light8);
+
+
+    }
+
     public void Stage1Clear()
     {
         Debug.Log("Stage1Clear");
@@ -198,4 +235,25 @@ public class GameDirector : MonoBehaviour {
     {
         Destroy(mPeople);
     }
+ 
+  
+    public void LightOn_Off(Transform player_pos, Transform light_pos, Light light)
+    {
+
+        player_pos = mPlayer.transform;
+        light_pos = light.transform;
+
+        distance = Vector3.Distance(light_pos.position, player_pos.position);
+
+        if (distance <= 5.0f)
+        {
+            light.enabled = true;
+        }
+        else
+        {
+            light.enabled = false;
+        }
+
+    }
+
 }
