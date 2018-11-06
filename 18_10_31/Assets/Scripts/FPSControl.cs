@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FPSControl : MonoBehaviour {
 
-    public float moveSpeed = 5.0f;
+    public float moveSpeed = 1.0f;
     public float rotSpeed = 3.0f;
     public Camera fpsCam;
 	// Use this for initialization
@@ -21,19 +21,23 @@ public class FPSControl : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.W))//앞
         {
+            //GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * moveSpeed * Time.deltaTime);
             this.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))//뒤
         {
+            //GetComponent<Rigidbody>().AddRelativeForce(Vector3.back * moveSpeed * Time.deltaTime);
             this.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))//왼
         {
-            this.transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            //GetComponent<Rigidbody>().AddRelativeForce(Vector3.left * moveSpeed * Time.deltaTime);
+            //this.transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))//오
         {
-            this.transform.Translate(Vector3.right* moveSpeed * Time.deltaTime);
+            //GetComponent<Rigidbody>().AddRelativeForce(Vector3.right * moveSpeed * Time.deltaTime);
+            //this.transform.Translate(Vector3.right* moveSpeed * Time.deltaTime);
         }
     }
     void RotCtrl()
