@@ -2664,7 +2664,7 @@ Prefab:
         type: 2}
       propertyPath: m_SpotAngle
       value: 104.1
-      objectReference: {fileID: 0}  
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6825a3fe8a1605f42a0d0589e582ac40, type: 2}
   m_IsPrefabAsset: 0
@@ -3398,16 +3398,16 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c87274d2cad2594468d9d430752438b8, type: 2}
   m_IsPrefabAsset: 0
---- !u!108 &338324810 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 108374899102069224, guid: 6825a3fe8a1605f42a0d0589e582ac40,
-    type: 2}
-  m_PrefabInternal: {fileID: 278244813}
 --- !u!4 &335216119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4378227761815878, guid: c87274d2cad2594468d9d430752438b8,
     type: 2}
   m_PrefabInternal: {fileID: 335216118}
+--- !u!108 &338324810 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108374899102069224, guid: 6825a3fe8a1605f42a0d0589e582ac40,
+    type: 2}
+  m_PrefabInternal: {fileID: 278244813}
 --- !u!4 &344019024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 72a63c892c9cc0644acf65c1a710feed,
@@ -12433,8 +12433,12 @@ MonoBehaviour:
   light3: {fileID: 2083825031}
   light4: {fileID: 338324810}
   light5: {fileID: 505146557}
+  light6: {fileID: 318824024}
+  light7: {fileID: 1239661477}
+  light8: {fileID: 0}
   childLaugh: {fileID: 8300000, guid: edfe947f72d9f2441b73948f7a2d6cc4, type: 3}
   autoBike: {fileID: 8300000, guid: a171aaf2fc722734783895e6b31074fb, type: 3}
+  bikeBell: {fileID: 0}
 --- !u!1001 &1545916713
 Prefab:
   m_ObjectHideFlags: 0

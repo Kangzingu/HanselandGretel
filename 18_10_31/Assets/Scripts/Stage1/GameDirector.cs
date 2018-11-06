@@ -26,6 +26,20 @@ public class GameDirector : MonoBehaviour {
 
     public GameObject mPlayer;
 
+    //Light 제어
+    public Transform mPlayer_position;
+    public Transform light_position;
+    public Light light1;
+    public Light light2;
+    public Light light3;
+    public Light light4;
+    public Light light5;
+    public Light light6;
+    public Light light7;
+    public Light light8;
+    float distance;
+
+
     public AudioClip childLaugh;
     public AudioClip autoBike;
     public AudioClip bikeBell;
@@ -106,8 +120,22 @@ public class GameDirector : MonoBehaviour {
             }
             
         }
-        
-	}
+
+        /*
+        * 가로등 제어
+        */
+
+        //light와 플레이어의 거리 비교
+        LightOn_Off(mPlayer_position, light_position, light1);
+        LightOn_Off(mPlayer_position, light_position, light2);
+        LightOn_Off(mPlayer_position, light_position, light3);
+        LightOn_Off(mPlayer_position, light_position, light4);
+        LightOn_Off(mPlayer_position, light_position, light5);
+        LightOn_Off(mPlayer_position, light_position, light6);
+        LightOn_Off(mPlayer_position, light_position, light7);
+        LightOn_Off(mPlayer_position, light_position, light8);
+
+    }
     public void Stage1Clear()
     {
         Debug.Log("Stage1Clear");
@@ -212,5 +240,20 @@ public class GameDirector : MonoBehaviour {
     public void DestroyStudents()
     {
         Destroy(mPeople);
+    }
+
+    public void LightOn_Off(Transform player_pos, Transform light_pos, Light light)
+    {
+        player_pos = mPlayer.transform;
+        light_pos = light.transform;
+        distance = Vector3.Distance(light_pos.position, player_pos.position);
+        if (distance <= 5.0f)
+        {
+            light.enabled = true;
+        }
+        else
+        {
+            light.enabled = false;
+        }
     }
 }
