@@ -26,6 +26,7 @@ public class GameDirector : MonoBehaviour {
 
     public GameObject mPlayer;
 
+    public Light light1;
     void Start () {
         isOpened = false;
         isDoorStart = false;
