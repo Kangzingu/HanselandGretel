@@ -86,7 +86,7 @@ public class GameDirector : MonoBehaviour {
         }
         if (isMotorCycleStart == true)//오토바이 출발
         {
-            mMotorCycle.transform.Translate(0, 0, 0.1f);
+            mMotorCycle.transform.Translate(0, -0.1f, 0f);
         }
         if (isCarStart == true)//차 출발
         {
