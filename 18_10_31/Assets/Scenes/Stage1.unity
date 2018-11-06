@@ -811,7 +811,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 86597139}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 60.82, y: 7.13, z: -15.49}
+  m_LocalPosition: {x: 60.82, y: 7.13, z: -15.57}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1558448704}
@@ -12421,6 +12421,8 @@ MonoBehaviour:
   mCar: {fileID: 763093842}
   mPeople: {fileID: 1407550991}
   mPlayer: {fileID: 0}
+  childLaugh: {fileID: 8300000, guid: edfe947f72d9f2441b73948f7a2d6cc4, type: 3}
+  autoBike: {fileID: 8300000, guid: a171aaf2fc722734783895e6b31074fb, type: 3}
 --- !u!1001 &1545916713
 Prefab:
   m_ObjectHideFlags: 0
