@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class IndoPeopleController : MonoBehaviour
 {
-
+    public GameObject startObject;
+    public GameObject endObject;
+    public bool isReverse;
     // Use this for initialization
     void Start()
     {
+        if (this.transform.rotation.eulerAngles.y == 0)
+            isReverse = true;
+        else
+            isReverse = false;
         //person = this.GetComponent<GameObject>();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        Debug.Log("sdasd");
-        if (collision.collider.tag == "MChild")
+        if (this.transform.position.z > startObject.transform.position.z)
         {
-            collision.transform.Rotate(new Vector3(0, 180, 0));
+            if (isReverse == true)
+                this.transform.Rotate(0, 180, 0);
+            isReverse = false;
+        }
+        else if (this.transform.position.z < endObject.transform.position.z)
+        {
+            if (isReverse == false)
+                this.transform.Rotate(0, 180, 0);
+            isReverse = true;
         }
     }
 }

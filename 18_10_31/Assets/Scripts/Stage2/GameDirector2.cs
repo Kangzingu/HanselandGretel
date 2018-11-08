@@ -2,40 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDirector2 : MonoBehaviour {
-    public int carNum;
-    public float speed;
-    public GameObject[] carPrefabLtoR = new GameObject[5];
-    public GameObject[] carPrefabRtoL = new GameObject[5];
-    int startZ;
-    int endZ;
+public class GameDirector2 : MonoBehaviour
+{
     // Use this for initialization
-    void Start () {
-        carNum = carPrefabLtoR.Length;
-        startZ = -90;
-        endZ = 130;
-        speed = 1;
+    public GameObject []stopObject=new GameObject[3];
+    public bool crossState;
+    private float changeTime = 5;
+    private float restTime = 0.5f;
+    private float countTime;
+    void Start()
+    {
+        crossState = false;
+      
+        countTime = changeTime;
     }
-	
-	// Update is called once per frame
-	void Update() { 
-        for(int i = 0; i < carNum; i++)
+    // Update is called once per frame
+    void Update()
+    {
+        countTime -= Time.deltaTime;
+        if (countTime < 0)//시간 바꼇졍
         {
-            carPrefabLtoR[i].transform.position += new Vector3(0, 0, speed);
-            if (carPrefabLtoR[i].transform.position.z > endZ)
-            {
-                carPrefabLtoR[i].transform.position = new Vector3(carPrefabLtoR[i].transform.position.x,
-                    carPrefabLtoR[i].transform.position.y,
-                    startZ);
-            }
-            carPrefabRtoL[i].transform.position -= new Vector3(0, 0, speed);
-            if (carPrefabRtoL[i].transform.position.z < startZ)
-            {
-                carPrefabRtoL[i].transform.position = new Vector3(carPrefabRtoL[i].transform.position.x,
-                    carPrefabRtoL[i].transform.position.y,
-                    endZ);
-            }
+            countTime = changeTime;
+            if (crossState)
+                crossState = false;
+            else
+                crossState = true;
         }
-
+        if (crossState == true)
+        {
+            stopObject[0].GetComponent<Collider>().enabled = true;
+            stopObject[1].GetComponent<Collider>().enabled = true;
+            stopObject[2].GetComponent<Collider>().enabled = false;
+            stopObject[3].GetComponent<Collider>().enabled = false;
+        }
+        else
+        {
+            stopObject[0].GetComponent<Collider>().enabled = false;
+            stopObject[1].GetComponent<Collider>().enabled = false;
+            stopObject[2].GetComponent<Collider>().enabled = true;
+            stopObject[3].GetComponent<Collider>().enabled = true;
+        }
     }
 }
