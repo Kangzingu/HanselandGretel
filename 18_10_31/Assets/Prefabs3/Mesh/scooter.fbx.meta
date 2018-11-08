@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 0f6e05099474967498f82e2d1abf60c5
+timeCreated: 1513251180
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Bone
+    100002: Bone.001
+    100004: Bone.001_end
+    100006: Bone.002
+    100008: Bone.002_end
+    100010: Bone.003
+    100012: Bone.003_end
+    100014: Bone.004
+    100016: Bone.005
+    100018: Bone.005_end
+    100020: Bone.006
+    100022: Bone.007
+    100024: Bone.008
+    100026: root
+    100028: //RootNode
+    100030: scooter_body
+    100032: scooter_fork
+    100034: scooter_helm
+    100036: scooter_wheel-bake
+    100038: scooter_wheel-front
+    100040: scooter_wind
+    400000: Bone
+    400002: Bone.001
+    400004: Bone.001_end
+    400006: Bone.002
+    400008: Bone.002_end
+    400010: Bone.003
+    400012: Bone.003_end
+    400014: Bone.004
+    400016: Bone.005
+    400018: Bone.005_end
+    400020: Bone.006
+    400022: Bone.007
+    400024: Bone.008
+    400026: root
+    400028: //RootNode
+    400030: scooter_body
+    400032: scooter_fork
+    400034: scooter_helm
+    400036: scooter_wheel-bake
+    400038: scooter_wheel-front
+    400040: scooter_wind
+    2300000: scooter_body
+    2300002: scooter_fork
+    2300004: scooter_helm
+    2300006: scooter_wheel-bake
+    2300008: scooter_wheel-front
+    2300010: scooter_wind
+    3300000: scooter_body
+    3300002: scooter_fork
+    3300004: scooter_helm
+    3300006: scooter_wheel-bake
+    3300008: scooter_wheel-front
+    3300010: scooter_wind
+    4300000: scooter_wheel-bake
+    4300002: scooter_body
+    4300004: scooter_wind
+    4300006: scooter_helm
+    4300008: scooter_fork
+    4300010: scooter_wheel-front
+    7400000: ride_1_Bake
+    7400002: left-turn_Bake
+    7400004: right-turn_Bake
+    7400006: ride_2_Bake
+    7400008: left_turn_2_Bake
+    7400010: right_turn_2_Bake
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
