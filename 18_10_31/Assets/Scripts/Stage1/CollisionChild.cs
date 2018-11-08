@@ -24,5 +24,17 @@ public class CollisionChild : MonoBehaviour {
             Debug.Log("collision child 호출");
         }
     }
-  
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            //아이가 플레이어와 닿음
+            gameDirector.GetComponent<GameDirector>().ExitCollisionChild();
+            Debug.Log("ExitCollisionChild 호출");
+        }
+
+    }
+
+
 }

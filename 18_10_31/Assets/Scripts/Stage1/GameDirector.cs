@@ -42,6 +42,11 @@ public class GameDirector : MonoBehaviour {
     public Light light10;
     public Light light11;
 
+    public Light light12;
+    public Light light13;
+    public Light light14;
+
+
     float distance;
 
 
@@ -150,7 +155,11 @@ public class GameDirector : MonoBehaviour {
 
         LightOn_Off(mPlayer_position, light_position, light10);
         LightOn_Off(mPlayer_position, light_position, light11);
-       
+
+        LightOn_Off(mPlayer_position, light_position, light12);
+        LightOn_Off(mPlayer_position, light_position, light13);
+        LightOn_Off(mPlayer_position, light_position, light14);
+
         /*
          * 오토바이 객체 삭제 제어
          */
@@ -213,7 +222,7 @@ public class GameDirector : MonoBehaviour {
     }
     public void MotorCycleStart()
     {
-        mMotorCycle.transform.position = new Vector3(18, 0,5);
+        mMotorCycle.transform.position = new Vector3(18, -0.5f,5);
         isMotorCycleStart = true;
         //Audio
         this.aud.PlayOneShot(this.autoBike);
@@ -309,12 +318,20 @@ public class GameDirector : MonoBehaviour {
     public void CollisionPeople()
     {
         Debug.Log("아이들 닿음");
-        //Audio
         isPeoplesStart = false;
     }
+
     public void ExitCollisionPeople()
     {
         isPeoplesStart = true;
         
     }
+
+
+    public void ExitCollisionChild()
+    {
+        isChildStart = true;
+
+    }
+
 }
