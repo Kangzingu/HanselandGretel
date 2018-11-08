@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using SpeechLib;
+
 
 public class TTS : MonoBehaviour {
 
@@ -27,10 +27,10 @@ public class TTS : MonoBehaviour {
 
     public void ButtonPress()
     {
-        SpVoice voice;
-        voice = new SpVoice();
-        voice.Speak("Hello.");
-        voice.Speak(txt.text);
+        //SpVoice voice;
+        //voice = new SpVoice();
+        //voice.Speak("Hello.");
+        //voice.Speak(txt.text);
 
 
 
