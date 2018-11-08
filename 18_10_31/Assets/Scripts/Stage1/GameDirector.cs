@@ -36,7 +36,17 @@ public class GameDirector : MonoBehaviour {
     public Light light5;
     public Light light6;
     public Light light7;
-    //public Light light8;
+    public Light light8;
+    public Light light9;
+
+    public Light light10;
+    public Light light11;
+
+    public Light light12;
+    public Light light13;
+    public Light light14;
+
+
     float distance;
 
 
@@ -44,6 +54,10 @@ public class GameDirector : MonoBehaviour {
     public AudioClip autoBike;
     public AudioClip bikeBell;
     AudioSource aud;
+
+    //오토바이 객체 삭제 제어
+    public GameObject flag_box;
+    bool isconflict;
 
     void Start () {
         isOpened = false;
@@ -60,6 +74,8 @@ public class GameDirector : MonoBehaviour {
         //Audio
         this.aud = GetComponent<AudioSource>();
 
+        //오토바이 객체 삭제 제어
+        isconflict = false;
     }
     // Update is called once per frame
     void Update () {
@@ -108,7 +124,7 @@ public class GameDirector : MonoBehaviour {
         }
         if (isPeoplesStart == true)//아이 출발
         {
-            mPeople.transform.Translate(-0.015f,0,0);
+            mPeople.transform.Translate(-0.03f,0,0);
         }
         if (isPeopleTurnStart == true)//학생들이 한번만 돈다
         {
@@ -126,6 +142,7 @@ public class GameDirector : MonoBehaviour {
         */
 
         //light와 플레이어의 거리 비교
+        
         LightOn_Off(mPlayer_position, light_position, light1);
         LightOn_Off(mPlayer_position, light_position, light2);
         LightOn_Off(mPlayer_position, light_position, light3);
@@ -133,7 +150,26 @@ public class GameDirector : MonoBehaviour {
         LightOn_Off(mPlayer_position, light_position, light5);
         LightOn_Off(mPlayer_position, light_position, light6);
         LightOn_Off(mPlayer_position, light_position, light7);
-        //LightOn_Off(mPlayer_position, light_position, light8);
+        LightOn_Off(mPlayer_position, light_position, light8);
+        LightOn_Off(mPlayer_position, light_position, light9);
+
+        LightOn_Off(mPlayer_position, light_position, light10);
+        LightOn_Off(mPlayer_position, light_position, light11);
+
+        LightOn_Off(mPlayer_position, light_position, light12);
+        LightOn_Off(mPlayer_position, light_position, light13);
+        LightOn_Off(mPlayer_position, light_position, light14);
+
+        /*
+         * 오토바이 객체 삭제 제어
+         */
+
+        isconflict = deleteMotoCycle();
+        if (isconflict == true)
+        {
+            Debug.Log("삭제 고고");
+            Destroy(mMotorCycle);
+        }
 
     }
     public void Stage1Clear()
@@ -186,7 +222,7 @@ public class GameDirector : MonoBehaviour {
     }
     public void MotorCycleStart()
     {
-        mMotorCycle.transform.position = new Vector3(18, 0, -15);
+        mMotorCycle.transform.position = new Vector3(18, -0.5f,5);
         isMotorCycleStart = true;
         //Audio
         this.aud.PlayOneShot(this.autoBike);
@@ -206,6 +242,7 @@ public class GameDirector : MonoBehaviour {
     public void DestroyChild()
     {
         Debug.Log("DestroyChild");
+
         Destroy(mChild);//아이를 없앤다
         this.isChildStart = false;
     }
@@ -241,7 +278,6 @@ public class GameDirector : MonoBehaviour {
     public void DestroyStudents()
     {
         Destroy(mPeople);
-
     }
 
     public void LightOn_Off(Transform player_pos, Transform light_pos, Light light)
@@ -258,4 +294,44 @@ public class GameDirector : MonoBehaviour {
             light.enabled = false;
         }
     }
+
+    bool deleteMotoCycle()
+    {
+        Transform motoCycle_position;
+        Transform flag_box_position;
+
+        motoCycle_position = mMotorCycle.transform;
+        flag_box_position = flag_box.transform;
+        distance = Vector3.Distance(motoCycle_position.position, flag_box_position.position);
+
+        if (distance <= 5.0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
+    public void CollisionPeople()
+    {
+        Debug.Log("아이들 닿음");
+        isPeoplesStart = false;
+    }
+
+    public void ExitCollisionPeople()
+    {
+        isPeoplesStart = true;
+        
+    }
+
+
+    public void ExitCollisionChild()
+    {
+        isChildStart = true;
+
+    }
+
 }
