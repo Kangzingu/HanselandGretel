@@ -236,10 +236,12 @@ public class GameDirector : MonoBehaviour {
     public void ExitCollisionCar()
     {
         isCarStart = true;
+        this.aud.PlayOneShot(this.autoBike);
     }
     public void DestroyStudents()
     {
         Destroy(mPeople);
+
     }
 
     public void LightOn_Off(Transform player_pos, Transform light_pos, Light light)
