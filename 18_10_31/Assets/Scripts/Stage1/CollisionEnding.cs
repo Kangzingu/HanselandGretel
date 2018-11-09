@@ -12,8 +12,8 @@ public class CollisionEnding : MonoBehaviour {
         if (other.tag == "Player")
         {
             //end object와 플레이어와 닿음
-            gameDirector.GetComponent<GameDirector>().ExitCollisionEndingObject();
-            Debug.Log("ExitCollisionEndingObject 호출");
+            gameDirector.GetComponent<GameDirector>().CollisionEndingObject();
+            Debug.Log("CollisionEndingObject 호출");
         }
     }
 }

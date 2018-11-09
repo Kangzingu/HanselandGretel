@@ -351,7 +351,7 @@ public class GameDirector : MonoBehaviour {
 
     }
 
-    public void ExitCollisionEndingObject()
+    public void CollisionEndingObject()
     {
         Debug.Log("엔딩입니당");
         isEnding = true;
