@@ -9,7 +9,7 @@ public class GameDirector2 : MonoBehaviour
     // Use this for initialization
     public GameObject[] stopObject = new GameObject[3];
     public bool crossState;
-    private float changeTime = 5;
+    private float changeTime = 10;
     private float countTime;
 
     //엔딩 제어
@@ -42,7 +42,7 @@ public class GameDirector2 : MonoBehaviour
         {
             stopObject[0].GetComponent<Collider>().enabled = true;
             stopObject[1].GetComponent<Collider>().enabled = true;
-            if (countTime < changeTime - 1f)
+            if (countTime < changeTime - 1.5f)
             {
                 stopObject[2].GetComponent<Collider>().enabled = false;
                 stopObject[3].GetComponent<Collider>().enabled = false;
@@ -51,7 +51,7 @@ public class GameDirector2 : MonoBehaviour
         }
         else
         {
-            if (countTime < changeTime - 1f)
+            if (countTime < changeTime - 1.5f)
             {
                 stopObject[0].GetComponent<Collider>().enabled = false;
                 stopObject[1].GetComponent<Collider>().enabled = false;
