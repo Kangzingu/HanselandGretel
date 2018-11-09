@@ -7,6 +7,18 @@ public class CollisionPeople : MonoBehaviour {
     // Use this for initialization
     public GameObject gameDirector;
 
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
