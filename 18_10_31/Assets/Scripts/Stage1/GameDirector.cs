@@ -65,7 +65,11 @@ public class GameDirector : MonoBehaviour {
     public GameObject endingObject;
     bool isEnding;
 
+    //시야 제어
+    public bool isUnderLight;
+
     void Start () {
+        isUnderLight = false;
         isOpened = false;
         isDoorStart = false;
         rotateCount = 0;
@@ -151,7 +155,7 @@ public class GameDirector : MonoBehaviour {
         */
 
         //light와 플레이어의 거리 비교
-        
+
         LightOn_Off(mPlayer_position, light_position, light1);
         LightOn_Off(mPlayer_position, light_position, light2);
         LightOn_Off(mPlayer_position, light_position, light3);
@@ -161,18 +165,28 @@ public class GameDirector : MonoBehaviour {
         LightOn_Off(mPlayer_position, light_position, light7);
         LightOn_Off(mPlayer_position, light_position, light8);
         LightOn_Off(mPlayer_position, light_position, light9);
-
         LightOn_Off(mPlayer_position, light_position, light10);
         LightOn_Off(mPlayer_position, light_position, light11);
-
         LightOn_Off(mPlayer_position, light_position, light12);
         LightOn_Off(mPlayer_position, light_position, light13);
         LightOn_Off(mPlayer_position, light_position, light14);
-
-        /*
-         * 오토바이 객체 삭제 제어
-         */
-        if (!isMotorCycle)
+        if (light1.enabled || light2.enabled || light3.enabled ||
+            light4.enabled || light5.enabled || light6.enabled ||
+            light7.enabled || light8.enabled || light9.enabled ||
+            light10.enabled || light11.enabled || light12.enabled ||
+            light13.enabled || light14.enabled)
+        {
+            Debug.Log("dldld");
+            isUnderLight = true;
+        }
+        else
+        {
+            isUnderLight = false;
+        }
+            /*
+             * 오토바이 객체 삭제 제어
+             */
+            if (!isMotorCycle)
         {
             isconflict = deleteMotoCycle();
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stage1Clear : MonoBehaviour {
     public GameObject gameDirector;
     public GameObject Stage1;//stage1 경계
+    public Blind blind;
     // Use this for initialization
     void Start () {
 		
@@ -16,6 +17,7 @@ public class Stage1Clear : MonoBehaviour {
             gameDirector.GetComponent<GameDirector>().Stage1Clear();
             //gamedirector 함수
             Destroy(Stage1);
+            blind.GetComponent<Blind>().init = true;
         }
     }
     // Update is called once per frame
