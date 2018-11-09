@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //화면 변환시 사용
 
 public class GameDirector : MonoBehaviour {
     // Use this for initialization
@@ -15,6 +16,7 @@ public class GameDirector : MonoBehaviour {
 
     public GameObject mMotorCycle;
     bool isMotorCycleStart;
+    bool isMotorCycle;
 
     public GameObject mCar;
     bool isCarStart;
@@ -83,6 +85,9 @@ public class GameDirector : MonoBehaviour {
 
         //엔딩 제어
         isEnding = false;
+
+        //오토바이 삭제 에러
+        isMotorCycle = false;
     }
     // Update is called once per frame
     void Update () {
@@ -118,7 +123,7 @@ public class GameDirector : MonoBehaviour {
             //isChildStart = false;
             mChild.GetComponent<Animator>().SetFloat("h", 1.0f);
         }
-        if (isMotorCycleStart == true)//오토바이 출발
+        if (isMotorCycleStart == true&&isconflict==false)//오토바이 출발
         {
             mMotorCycle.transform.Translate(0, -0.1f, 0f);
         }
@@ -167,25 +172,28 @@ public class GameDirector : MonoBehaviour {
         /*
          * 오토바이 객체 삭제 제어
          */
-
-        isconflict = deleteMotoCycle();
+        if (!isMotorCycle)
+        {
+            isconflict = deleteMotoCycle();
+        }
+        
         if (isconflict == true)
         {
             Debug.Log("삭제 고고");
             Destroy(mMotorCycle);
+            isMotorCycle = true;
         }
 
         /*
          * ending 제어
          */
-       
         if (isEnding == true)
         {
             Debug.Log("엔딩");
             //씬 전환->홈으로
+            SceneManager.LoadScene("Menu 3D");
 
 
-            
         }
 
     }
@@ -334,14 +342,16 @@ public class GameDirector : MonoBehaviour {
 
     public void CollisionPeople()
     {
-        Debug.Log("아이들 닿음");
+        Debug.Log("학생들 닿음");
         isPeoplesStart = false;
     }
 
     public void ExitCollisionPeople()
     {
+        Debug.Log("학생들이랑 떨어졌어요!");
         isPeoplesStart = true;
-        
+        mPeople.transform.Translate(-0.03f, 0, 0);
+
     }
 
 
