@@ -15,12 +15,16 @@ public class GameDirector2 : MonoBehaviour
     //엔딩 제어
     public GameObject endingObject;
     bool isEnding;
+    public AudioClip gameClear;
+    AudioSource aud;
+    private float readingRate = 0.7f;
 
     void Start()
     {
         crossState = false;
         countTime = changeTime;
         isEnding = false;
+        this.aud = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -63,12 +67,22 @@ public class GameDirector2 : MonoBehaviour
         {
             Debug.Log("엔딩");
             //씬 전환->홈으로
-            SceneManager.LoadScene("Menu 3D");
-
+            this.aud.PlayOneShot(this.gameClear);
+            isEnding = false;
+            StartCoroutine("Waiting");
 
         }
 
     }
+
+    public IEnumerator Waiting()
+    {
+        //30초간 실행을 보류한다. 
+        yield return new WaitForSeconds(7.2f);
+        SceneManager.LoadScene("Menu 3D");
+        Debug.Log("말 나올때 까지 기다리는 중");
+    }
+
     public void CollisionEndingObject2()
     {
         Debug.Log("엔딩입니당");
