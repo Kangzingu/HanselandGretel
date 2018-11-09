@@ -7,6 +7,7 @@ public class IndoPeopleController : MonoBehaviour
     public GameObject startObject;
     public GameObject endObject;
     public bool isReverse;
+    Animator animator;
     // Use this for initialization
     void Start()
     {
@@ -15,6 +16,7 @@ public class IndoPeopleController : MonoBehaviour
         else
             isReverse = false;
         //person = this.GetComponent<GameObject>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -31,4 +33,12 @@ public class IndoPeopleController : MonoBehaviour
             isReverse = true;
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Player")
+        {
+            animator.SetTrigger("Lay");
+        }
+    }
+
 }

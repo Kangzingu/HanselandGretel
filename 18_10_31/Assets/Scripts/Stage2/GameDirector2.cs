@@ -31,7 +31,7 @@ public class GameDirector2 : MonoBehaviour
         {
             stopObject[0].GetComponent<Collider>().enabled = true;
             stopObject[1].GetComponent<Collider>().enabled = true;
-            if (countTime < changeTime - 0.5f)
+            if (countTime < changeTime - 1f)
             {
                 stopObject[2].GetComponent<Collider>().enabled = false;
                 stopObject[3].GetComponent<Collider>().enabled = false;
@@ -40,7 +40,7 @@ public class GameDirector2 : MonoBehaviour
         }
         else
         {
-            if (countTime < changeTime - 0.5f)
+            if (countTime < changeTime - 1f)
             {
                 stopObject[0].GetComponent<Collider>().enabled = false;
                 stopObject[1].GetComponent<Collider>().enabled = false;
