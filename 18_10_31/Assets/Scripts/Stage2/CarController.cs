@@ -17,6 +17,10 @@ public class CarController : MonoBehaviour
     public int dir;//x+-, z+-
                    //0 1 2 3
                    // Use this for initialization
+    //소리 추가
+    public AudioClip clark;
+    AudioSource aud;
+
     void Start()
     {
         isHitChild = false;
@@ -27,6 +31,8 @@ public class CarController : MonoBehaviour
             crossState = !gameDirector.GetComponent<GameDirector2>().crossState;
         else
             crossState = gameDirector.GetComponent<GameDirector2>().crossState;
+
+        this.aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -77,6 +83,10 @@ public class CarController : MonoBehaviour
 
             }
         }
+        else//isHitChild==true
+        {
+
+        }
     }
     private void OnCollisionEnter(Collision collision)//끝점 도착
     {
@@ -90,6 +100,8 @@ public class CarController : MonoBehaviour
             ///////////////
             ///소리 플레이
             ///////////////
+            ///
+            this.aud.PlayOneShot(this.clark);
         }
     }
     private void OnCollisionExit(Collision collision)
