@@ -56,6 +56,7 @@ public class GameDirector : MonoBehaviour {
     public AudioClip childLaugh;
     public AudioClip autoBike;
     public AudioClip bikeBell;
+    public AudioClip gameEnding;
     AudioSource aud;
 
     //오토바이 객체 삭제 제어
@@ -208,11 +209,20 @@ public class GameDirector : MonoBehaviour {
         {
             Debug.Log("엔딩");
             //씬 전환->홈으로
-            SceneManager.LoadScene("Menu 3D");
+            isEnding = false;
+            this.aud.PlayOneShot(this.gameEnding);
+            StartCoroutine("Waiting");
 
 
         }
 
+    }
+    public IEnumerator Waiting()
+    {
+        //30초간 실행을 보류한다. 
+        yield return new WaitForSeconds(7.2f);
+        SceneManager.LoadScene("Menu 3D");
+        Debug.Log("말 나올때 까지 기다리는 중");
     }
     public void Stage1Clear()
     {

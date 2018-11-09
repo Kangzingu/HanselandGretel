@@ -37803,7 +37803,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 862571099}
   Tutorial: {fileID: 8300000, guid: 667bdba26ce48284f87b718b34c29f9c, type: 3}
-  subway: {fileID: 0}
+  subway: {fileID: 8300000, guid: 25a7db2beb46d63468a03b92f0d293c5, type: 3}
+  afterSubway: {fileID: 8300000, guid: d0ddedb3be1d5ad4f9299b7a549c3da7, type: 3}
 --- !u!82 &862571109
 AudioSource:
   m_ObjectHideFlags: 0
