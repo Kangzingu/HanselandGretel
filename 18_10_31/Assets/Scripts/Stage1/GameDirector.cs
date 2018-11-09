@@ -23,6 +23,7 @@ public class GameDirector : MonoBehaviour {
 
     public GameObject mPeople;
     bool isPeoplesStart;
+    bool isPeopleDeleted;
     bool isPeopleTurnStart;
     float turnValue;
 
@@ -80,6 +81,7 @@ public class GameDirector : MonoBehaviour {
         isCarStart = false;
         isPeoplesStart = false;
         isPeopleTurnStart = false;
+        isPeopleDeleted = false;
 
         //Audio
         this.aud = GetComponent<AudioSource>();
@@ -135,7 +137,7 @@ public class GameDirector : MonoBehaviour {
         {
             //mCar.transform.Translate(0, 0, 0.25f);
         }
-        if (isPeoplesStart == true)//아이 출발
+        if (isPeoplesStart == true&& isPeopleDeleted==false)//아이 출발
         {
             mPeople.transform.Translate(-0.03f,0,0);
         }
@@ -176,7 +178,6 @@ public class GameDirector : MonoBehaviour {
             light10.enabled || light11.enabled || light12.enabled ||
             light13.enabled || light14.enabled)
         {
-            Debug.Log("dldld");
             isUnderLight = true;
         }
         else
@@ -195,6 +196,8 @@ public class GameDirector : MonoBehaviour {
         {
             Debug.Log("삭제 고고");
             Destroy(mMotorCycle);
+            isMotorCycleStart = false;
+            isconflict = false;
             isMotorCycle = true;
         }
 
@@ -364,6 +367,7 @@ public class GameDirector : MonoBehaviour {
     {
         Debug.Log("학생들이랑 떨어졌어요!");
         isPeoplesStart = true;
+        isPeopleDeleted = true;
         mPeople.transform.Translate(-0.03f, 0, 0);
 
     }

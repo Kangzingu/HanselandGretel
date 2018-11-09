@@ -13,7 +13,7 @@ public class Blind : MonoBehaviour
     bool isDark;
     bool gettingBright;
     bool gettingDark;
-
+    bool isClicked;
     // Use this for initialization
     void Start()
     {
@@ -22,10 +22,34 @@ public class Blind : MonoBehaviour
         isBright = false;
         gettingBright = false;
         gettingDark = false;
+        isClicked = false;
     }
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            color = image.color;
+            if (color.a > 0.5f)
+            {
+            isClicked = true;
+                color.a = 0.5f;
+                image.color = color;
+            }
+        }
+        if (isClicked == true)
+        {
+            color = image.color;
+            if (color.a < 1)
+            {
+                color.a += 0.01f;
+                image.color = color;
+            }
+            else
+            {
+                isClicked = false;
+            }
+        }
         if (init == true)
         {
             color = image.color;
