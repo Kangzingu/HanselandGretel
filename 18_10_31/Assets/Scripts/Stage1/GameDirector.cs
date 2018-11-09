@@ -182,6 +182,9 @@ public class GameDirector : MonoBehaviour {
         if (isEnding == true)
         {
             Debug.Log("엔딩");
+            //씬 전환->홈으로
+
+
             
         }
 
