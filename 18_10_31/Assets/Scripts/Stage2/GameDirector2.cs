@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //화면 변환시 사용
+
 
 public class GameDirector2 : MonoBehaviour
 {
@@ -9,11 +11,16 @@ public class GameDirector2 : MonoBehaviour
     public bool crossState;
     private float changeTime = 5;
     private float countTime;
+
+    //엔딩 제어
+    public GameObject endingObject;
+    bool isEnding;
+
     void Start()
     {
         crossState = false;
-
         countTime = changeTime;
+        isEnding = false;
     }
     // Update is called once per frame
     void Update()
@@ -48,5 +55,25 @@ public class GameDirector2 : MonoBehaviour
             stopObject[2].GetComponent<Collider>().enabled = true;
             stopObject[3].GetComponent<Collider>().enabled = true;
         }
+
+        /*
+         * ending 제어
+         */
+        if (isEnding == true)
+        {
+            Debug.Log("엔딩");
+            //씬 전환->홈으로
+            SceneManager.LoadScene("Menu 3D");
+
+
+        }
+
     }
+    public void CollisionEndingObject2()
+    {
+        Debug.Log("엔딩입니당");
+        isEnding = true;
+    }
+
+
 }
