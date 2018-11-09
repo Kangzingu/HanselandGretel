@@ -13,7 +13,7 @@ public class MenuChildController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (child.transform.position.x > endLocation.x && child.transform.position.z > endLocation.z)
+        if (child.transform.position.x > endLocation.x && child.transform.position.z < endLocation.z)
         {
             child.transform.position = startLocation;
         }
