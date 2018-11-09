@@ -21,7 +21,7 @@ public class CollisionPeople : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            //오토바이가 플레이어와 닿음
+            //사람이 플레이어와 닿음
             gameDirector.GetComponent<GameDirector>().ExitCollisionPeople();
             Debug.Log("ExitCollisionPeople 호출");
         }

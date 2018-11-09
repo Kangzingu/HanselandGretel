@@ -59,6 +59,10 @@ public class GameDirector : MonoBehaviour {
     public GameObject flag_box;
     bool isconflict;
 
+    //엔딩 제어
+    public GameObject endingObject;
+    bool isEnding;
+
     void Start () {
         isOpened = false;
         isDoorStart = false;
@@ -76,6 +80,9 @@ public class GameDirector : MonoBehaviour {
 
         //오토바이 객체 삭제 제어
         isconflict = false;
+
+        //엔딩 제어
+        isEnding = false;
     }
     // Update is called once per frame
     void Update () {
@@ -102,9 +109,6 @@ public class GameDirector : MonoBehaviour {
                 //애기 뛰어라
                 this.ChildRun();     
             }
-
-        
-
 
         }
         if (isChildStart == true)//애기 뛰는거 시작
@@ -169,6 +173,16 @@ public class GameDirector : MonoBehaviour {
         {
             Debug.Log("삭제 고고");
             Destroy(mMotorCycle);
+        }
+
+        /*
+         * ending 제어
+         */
+       
+        if (isEnding == true)
+        {
+            Debug.Log("엔딩");
+            
         }
 
     }
@@ -333,5 +347,13 @@ public class GameDirector : MonoBehaviour {
         isChildStart = true;
 
     }
+
+    public void ExitCollisionEndingObject()
+    {
+        Debug.Log("엔딩입니당");
+        isEnding = true;
+
+    }
+
 
 }
